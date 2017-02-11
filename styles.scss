@@ -1,0 +1,103 @@
+$primarycolr:red;
+$uma:3px;
+.class1,
+.class2 {
+    color: red;
+}
+
+.edit,
+.mark {
+    button {
+        color: white;
+        background-position: 0 0;
+        float: left;
+        clear: both;
+    }
+    display: list-item;
+}
+
+@function getcolor($color) {
+    $color: lightblue;
+    @return $color;
+}
+
+.colordiv {
+    $primarycolr: green;
+    background: getcolor($primarycolr);
+    display: block;
+    padding: 40px;
+    padding-top: 200px;
+}
+
+a {
+    font-size: 20px;
+}
+
+.sidebar {
+    position: absolute;
+    top: 0;
+    left: -160px;
+    ;
+    transition: 100ms left;
+}
+
+#navigation-toggle {
+    position: absolute;
+    left: 160px;
+    background: rgba(3, 159, 244, .95);
+    color: white;
+    text-decoration: none;
+    padding: 20px;
+}
+
+.show {
+    left: 0;
+}
+
+.navigation {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation-items a {
+    display: block;
+    background-color: #444;
+    color: white;
+    line-height: 2em;
+    text-decoration: none;
+    padding: 10px 30px;
+    width: 160px;
+}
+
+.navigation-items a:hover {
+    background-color: #222;
+    padding: $uma;
+}
+
+.divslideshow {
+    #divlinks a {
+        color: gray;
+        &:hover {
+            color: red;
+        }
+        &:visited {
+            color: pink;
+        }
+    }
+}
+
+@mixin linx($link, $hover, $active, $visite) {
+    a {
+        color: $link;
+        &:hover {
+            color: $hover;
+        }
+        &:visited {
+            color: $visite;
+        }
+        &:active {
+            color: $active;
+        }
+    }
+}

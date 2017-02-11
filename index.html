@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>
+<html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>
+<html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <!-- Meta-Information -->
+    <title>Kaakateeya Marriages</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <base href="/">
+    <meta name="description" content="ACME Inc.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--styles-->
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" rel="stylesheet"></link>
+    <link href="node_modules/font-awesome/css/font-awesome.min.css" rel="stylesheet"></link>
+    <link href="styles.css" rel="stylesheet"></link>
+    <link href="Demo/bootstrapTable/css/bootstrap-table-fixed-columns.css" rel="stylesheet"></link>
+    <link href="Demo/bootstrapTable/css/bootstrap-table.css" rel="stylesheet"></link>
+    <link href="Demo/bootstrapTable/css/dragtable.css" rel="stylesheet"></link>
+    <!--styles-->
+</head>
+
+<body ng-app="Kaakateeya" ui-router-styles>
+    <div ui-view="content"></div>
+    <div class="container">
+        <div ng-controller="SidebarController" class="sidebar" sidebar-directive="state">
+            <a href="#" id="navigation-toggle" ng-click="toggleState()">Navigation</a>
+            <ul class="navigation">
+                <li class="navigation-items"> <a href="bootstrapTable">bootstrapTable</a> </li>
+                <li class="navigation-items"> <a href="bootstrapslide">bootstrapSlide</a> </li>
+                <li class="navigation-items"> <a href="photosSlideshow">photoslide</a> </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="">
+        <a href="#">Testinglink
+        </a>
+    </div>
+
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="node_modules/angular/angular.min.js"></script>
+    <script src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+    <script src="node_modules/angular-module-sanitize/angular-sanitize.js"></script>
+    <script src="node_modules/underscore/underscore-min.js"></script>
+
+    <script src="index.js"></script>
+    <script src="script.js"></script>
+    <script src="Demo/directives/dynamicSlideshow.js">
+    </script>
+    <script src="Demo\directives\dynamicBootstrapTable.js">
+    </script>
+    <script src="src/js/bootstrap-table.js"></script>
+    <script src="src/js/tableExport.js"></script>
+    <script src="src/js/bootstrap-table-export.js"></script>
+    <script src="Demo\directives\dynamicPhotoPopup.js"></script>
+    <script src="Demo\photosSlideshow\services\photosSlideshowService.js"></script>
+</body>
+
+</html>

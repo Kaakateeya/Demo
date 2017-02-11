@@ -1,0 +1,241 @@
+<div>
+    <div id="PhotoPopupSlde" class="edit_page_details_item" role="dialog">
+        <div class="modal-content">
+            <div class="modal-header" style="border-bottom: 1px solid #ffffff;">
+                <div class="row">
+                    <div class="col-lg-12" style="height: 30px; margin-top: 8px;">
+                        <div class="col-lg-8">
+                            <div class="row">
+                                <div id="divimgfrompic" class="col-lg-1">
+                                    <img id="imgfrompic" style="display:block;height: 54px; width: 60px;" src="http://d16o2fcjgzj2wp.cloudfront.net/Images/customernoimages/Fnoimage_Rev.png">
+                                </div>
+                                <div class="col-lg-11">
+                                    <label id="lblsearchprofileid" style="color: black;"></label>
+                                    <label id="lblNamefrom" style="color: black">Lakshmi  A</label>
+                                    <a id="lnkprofileidfrom" href="javascript:void(0)">(310910220)</a>
+                                    <a id="lnkmorepopup" style="width: 20px; margin-right: 13px;" data-toggle="modal" href="#divlookingmore">More</a>
+                                    <a id="lnkPatnerprefercencedata" href="javascript:void(0)">Edit Partpreference</a>
+                                    <label id="lblhiddenprofileid" style="display: none;">310910220</label>
+                                    <br>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <label id="lbltotalrecords">Total Records :</label>
+                                            <label id="lblcurSlide">1</label>
+                                            <label id="lblnoofrecords"> of 10</label>
+                                            <input type="hidden" id="hdnTotalPages">
+                                        </div>
+                                        <div class="col-lg-4" id="divviewedprofiles" style="display:block;">
+                                            <div class="row">
+                                                <div class="col-lg-10">
+                                                    <label>Viewed</label>&nbsp;<label id="lnkLastSlide" style="color: blue;">2</label>&nbsp;<label>Profiles</label>
+                                                </div>
+                                                <div class="col-lg-1">
+                                                    <input type="text" id="txtGotoVal" class="form-control" style="width: 60px; height: 30px; margin-left: -58px; margin-top: -8px;">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-2" id="gotoSlideDiv" style="display:block;">
+                            <a id="lnkshortlistpopup" style="font-size: 18px;" href="javascript:void(0);"><span class="glyphicon glyphicon-star">ShowShortList</span></a>
+                        </div>
+                        <div class="col-lg-2">
+                            <button id="lnkbacktoSearch" class="btn btn-info">Back to Search Page</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <div class="row" style="margin-top: 25px; margin-left: 2px;">
+                </div>
+            </div>
+            <div class="progress" id="progessDiv" style="display:block;"></div>
+            <div class="modal-body">
+                <div id="sildeViewDiv" style="display:block;">
+                    <div class="row">
+                        <div class="col-lg-5">
+                            <div class="num">Profile 2</div>
+
+                        </div>
+                    </div>
+                    <div class="bs-example">
+                        <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="item" ng-class="$index+1==1?'active':''" ng-repeat="slidedata in slideshowArray">
+
+                                    <div class="col-lg-8 col-md-8 col-lxs-8">
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">ProfileID</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>&nbsp;<a href="javascript:void(0);" style="color:red;text-decoration:underline;margin-left: -16px;padding-left: 10px;" >{{slidedata.ProfileID}}</a> {{slidedata.KMPLID}} {{(slidedata.IsConfidential===true) ||(slidedata.IsConfidential==='True')?'C':''}}  
+                                                {{(slidedata.SuperConfidentila==="1") ||(slidedata.SuperConfidentila===1)?'SC':''}}  
+                                                <input ng-show="slidedata.HoroscopeStatus==='1'" src='../../Images/ico_horoscope.jpg' style='height:20px;width:25px;' type='image'>
+                                              </span>
+                                                </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Name</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div style="color:Black;"> <span>{{slidedata.LastName}} {{slidedata.FirstName}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">DOB(age)</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.DOB}}({{slidedata.Age}})</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Time of Birth</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.TOB}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Place of Birth</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.PlaceOfBirth}} </span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Gothram</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Gothram}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Caste</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Caste}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Marital Status</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.maritalstatus}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Star</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Star}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Color</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Color}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Height</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Height}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Qualification</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.EducationGroup}},{{slidedata.EduGroupnamenew}} </span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Profession</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Profession}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Job Location</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.JobLocation}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Income(P.M)</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Income}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Father Native</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.FFNative}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Mother Native</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.MFNative}}</span> </div>
+                                            </h6>
+                                        </div>
+                                        <div class="row">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Property(Lakhs)</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.Property}}</span> </div>
+                                            </h6>
+                                        </div>
+
+                                        <div class="row" ng-show="slidedata.serviceDate!=='--' && slidedata.serviceDate!==''">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">Service Date</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.serviceDate}}</span> </div>
+                                            </h6>
+                                        </div>
+
+
+                                        <div class="row" ng-show="slidedata.Intercaste==='True'">
+                                            <h5 class="col-lg-3"> <span style="font-weight: bold;">InterCaste</span></h5>
+                                            <h6 class="col-lg-9">
+                                                <div> <span>{{slidedata.fathercaste}}/{{slidedata.mothercaste}}</span> </div>
+                                            </h6>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-xs-3 col-sm-3 col-lg-pull-2  col-md-pull-2 col-xs-pull-2 col-sm-pull-2 ">
+                                        <div class="row">
+                                            <div class="col-lg-8">
+                                                <div class="row">
+                                                    <a class="Heart center-block" href="javascript:void(0);'">
+                                                        <div class="col-lg-3"><img src="../../Images/kaakateeya%20logo_001.jpg" style="margin-top: -4px;" width="40" height="38"></div>
+                                                        <div class="col-lg-1">
+                                                            <lable style="font-size: 13pt;">shortlist</lable>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="clearfix"></div>
+                                        <div><input id="imgCustPhotomyCarousel1" ng-click="slidepopup()" src="http://d16o2fcjgzj2wp.cloudfront.net/Images/ProfilePics/KMPL_108801_Images/Img1_Images/111088014_FullPhoto.jpg" class="image" type="image"><br>
+                                            <div class="col-lg-8 col-lg-offset-5"><a href="javascript:void(0)"><span style="color:Black;font-size:9pt;">No of Photos   2</span></a></div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            <a id="Leftcarousel" class="carousel-control left" data-target="#myCarousel" data-slide="prev" style="">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a id="Rightcarousel" class="carousel-control right" data-target="#myCarousel" data-slide="next" style="display:block;">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                        <div id="carouselButtons" class="col-lg-offset-5">
+                            <button id="playButton" type="button" class="btn btn-default btn-xs" style="width: 33px; height: 33px; font-size: 16px;" title="Play">
+                                <span class="fa fa-play"></span>
+                            </button>
+                            <button id="pauseButton" type="button" class="btn btn-default btn-xs" style="width: 33px; height: 33px; font-size: 16px; display: none;" title="Pause">
+                                <span class="fa fa-pause"></span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
