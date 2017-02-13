@@ -141,7 +141,7 @@ module.exports = function(grunt) {
         },
 
 
-        //Robot --option-path=testgruntttt
+        //grunt  Robot --option-path=testgruntttt
 
         mkdir: {
             all: {
@@ -160,6 +160,12 @@ module.exports = function(grunt) {
                     },
                     {
                         file: ((grunt.option('option-path') + '/model/') + (grunt.option('option-path') + "Mdl.js")),
+                        method: function(fs, fd, done) {
+                            done();
+                        }
+                    },
+                    {
+                        file: ((grunt.option('option-path') + '/service/') + (grunt.option('option-path') + "service.js")),
                         method: function(fs, fd, done) {
                             done();
                         }
@@ -189,6 +195,10 @@ module.exports = function(grunt) {
                     {
                         src: './PageCode/mdlFormat.js',
                         dest: ((grunt.option('option-path') + '/model/') + (grunt.option('option-path') + "Mdl.js"))
+                    },
+                    {
+                        src: './PageCode/serviceFormat.js',
+                        dest: ((grunt.option('option-path') + '/service/') + (grunt.option('option-path') + "service.js")),
                     },
                     {
                         src: './PageCode/viewFormat.html',
