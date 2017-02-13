@@ -1,10 +1,18 @@
-controller.$inject = ['$location'];
+ (function() {
+     'use strict';
 
-function controller($location) {
-    /* jshint validthis:true */
-    var vm = this;
+     angular
+         .module('module')
+         .controller('parametervalueCtrl', controller)
 
-    activate();
+     controller.$inject = ['$location'];
 
-    function activate() {}
-}
+     function controller($location) {
+         /* jshint validthis:true */
+         var vm = this;
+
+         activate();
+
+         function activate() {}
+     }
+ })();

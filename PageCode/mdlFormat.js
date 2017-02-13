@@ -1,13 +1,19 @@
-factory.$inject = ['$http'];
+(function() {
+    'use strict';
 
-function factory($http) {
-    var service = {
-        getData: getData
-    };
+    angular
+        .module('module')
+        .factory('parametervalueModel', factory)
 
-    return service;
+    factory.$inject = ['$http'];
 
-    function getData() {
+    function factory($http) {
+        var service = {
+            getData: getData
+        };
 
+        return service;
+
+        function getData() {}
     }
-}
+})();

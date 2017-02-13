@@ -138,7 +138,73 @@ module.exports = function(grunt) {
                     dest: 'dist/images' // Destination path prefix
                 }]
             }
+        },
+
+
+        //Robot --option-path=testgruntttt
+
+        mkdir: {
+            all: {
+                options: {
+                    create: [grunt.option('option-path')]
+                },
+            },
+        },
+        "file-creator": {
+            "option": {
+                files: [{
+                        file: ((grunt.option('option-path') + '/controller/') + (grunt.option('option-path') + "ctrl.js")),
+                        method: function(fs, fd, done) {
+                            done();
+                        }
+                    },
+                    {
+                        file: ((grunt.option('option-path') + '/model/') + (grunt.option('option-path') + "Mdl.js")),
+                        method: function(fs, fd, done) {
+                            done();
+                        }
+                    },
+                    {
+                        file: ((grunt.option('option-path') + '/') + ("index.html")),
+                        method: function(fs, fd, done) {
+                            done();
+                        }
+                    }
+                ]
+            },
+            options: {
+                replacements: [{
+                    pattern: 'parametervalue',
+                    replacement: grunt.option('option-path')
+                }]
+            }
+        },
+
+        'string-replace': {
+            dist: {
+                files: [{
+                        src: './PageCode/ctrlFormat.js',
+                        dest: ((grunt.option('option-path') + '/controller/') + (grunt.option('option-path') + "ctrl.js"))
+                    },
+                    {
+                        src: './PageCode/mdlFormat.js',
+                        dest: ((grunt.option('option-path') + '/model/') + (grunt.option('option-path') + "Mdl.js"))
+                    },
+                    {
+                        src: './PageCode/viewFormat.html',
+                        dest: ((grunt.option('option-path') + '/') + ("index.html"))
+                    }
+                ],
+                options: {
+                    replacements: [{
+                        pattern: 'parametervalue',
+                        replacement: grunt.option('option-path')
+                    }]
+                }
+            }
         }
+
+
 
     });
     grunt.registerTask('default', ['jshint', 'cssmin', 'concat', 'scriptlinker:dev', 'imagemin']);
@@ -148,6 +214,7 @@ module.exports = function(grunt) {
 
     // only run production configuration 
     grunt.registerTask('prod', ['jshint', 'concat', 'uglify', 'cssmin', 'scriptlinker:prod', 'imagemin']);
+    grunt.registerTask('Robot', ['mkdir', 'file-creator', 'string-replace']);
 
     // ===========================================================================
     // LOAD GRUNT PLUGINS ========================================================
@@ -164,4 +231,8 @@ module.exports = function(grunt) {
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-mkdir');
+    grunt.loadNpmTasks('grunt-file-creator');
+    grunt.loadNpmTasks('grunt-string-replace');
+
 };
