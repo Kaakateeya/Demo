@@ -9,13 +9,13 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                 pagesize: '=',
                 loadType: '=',
                 vid: '=',
-                template: '='
+                templateval: '='
             },
             templateUrl: "templates/dynamicBootstrapTable.html",
             link: function(scope, element, attrs) {
                 var table = '';
-                debugger;
-                scope.ID = scope.vid;
+
+                scope.ID = attrs.id;
                 var testid = $('.Datatable').attr('id');
                 var tableArray = scope.array;
                 scope.Datatableshow = true;
@@ -82,11 +82,11 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                     tableID.bootstrapTable('prepend', tableArray);
                     return false;
                 }
-                // timeout(function() {
+
                 debugger;
-                table = $('.' + scope.ID);
+                table = $('#' + scope.ID + ' .Datatable');
                 BootstrapTableLoad();
-                // }, 1000);
+
             }
         };
     }

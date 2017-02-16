@@ -11,6 +11,9 @@ app.controller('bootstraptableCtrl', ['$scope',
         //     console.log(scope.slideshowArray);
 
         // });
+
+        scope.table1 = '<table class="Datatable" id="test1"></table>';
+
         scope.tableArray = [{
                 Age: 20,
                 AgeMax: null,
