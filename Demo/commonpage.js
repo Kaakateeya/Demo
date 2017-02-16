@@ -1,6 +1,7 @@
 app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoalubum) {
     var modalinstance;
     var obj = {};
+    var $table = $('#GridTable');
     obj.gotoSlide = function(e) {
         var lastslide = parseInt($("#lnkLastSlide").text());
         if (parseInt($(e).val()) <= lastslide) {
@@ -99,6 +100,23 @@ app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoa
                 backdrop: 'static',
                 keyboard: false
             });
+        },
+        setColumns: function(test) {
+            var arrayyy = [];
+            _.each(test, function(item, index) {
+                if (item.substring(0, 1) != "_") {
+                    var obj = {};
+                    obj.field = item;
+                    obj.title = item;
+                    obj.sortable = true;
+                    obj.searchable = true;
+                    obj.visible = true;
+                    obj.switchable = true;
+
+                    arrayyy.push(obj);
+                }
+            });
+            return arrayyy;
         }
 
     };
