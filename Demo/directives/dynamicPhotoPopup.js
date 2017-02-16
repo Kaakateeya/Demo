@@ -6,10 +6,11 @@ app.directive("photoAlbum", ['commonpage', 'photoalubum',
                 custid: '='
             },
             templateUrl: "templates/dynamicPhotoPopup.html",
+
             link: function(scope, element, attrs) {
                 debugger;
                 scope.slides = [];
-                commonpage.showPopup('photopopup.html', scope, 'lg');
+
 
                 scope.close = function() {
                     commonpage.closepopup();
@@ -23,6 +24,7 @@ app.directive("photoAlbum", ['commonpage', 'photoalubum',
                 });
 
             }
+
         };
     }
 ]);

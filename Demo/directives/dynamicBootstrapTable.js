@@ -1,8 +1,8 @@
-app.directive("bootstrapTable", ['$uibModal', '$timeout',
-    function(uibModal, timeout) {
-        var modalinstance;
+app.directive("bootstrapTable", ['$uibModal',
+    function(uibModal) {
         return {
             restrict: "E",
+
             templateUrl: "templates/dynamicBootstrapTable.html",
             link: function(scope, element, attrs) {
                 var $table = $('#GridTable');

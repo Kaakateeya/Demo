@@ -1,8 +1,6 @@
 app.directive("slideShow", ['$uibModal', 'commonpage',
 
     function(uibModal, commonpage) {
-        var modalinstance;
-
         return {
             restrict: "E",
             scope: {
@@ -26,7 +24,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 return attrs.slidetype === "'page'" ? 'templates/dynamicSlideshow.html' : '';
             },
             link: function(scope, element, attrs) {
-                debugger;
+
                 var dataarrr = scope.slidearray;
                 scope.displayArr = [];
                 scope.ShowPause = true;
@@ -74,7 +72,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                         if (item.ProfileGrade != 0)
                             data.push({ label: 'ProfileGrade', value: item.ProfileGrade == "1" ? "A-(This ProfileId Contacts not Visible On Web)" : (item.ProfileGrade == "2" ? "B" : (item.ProfileGrade == "3" ? "C-(This ProfileId Contacts Visible On Web)" : "--(This ProfileId Contacts not Visible On Web)")) });
 
-                        arraydata.push({ itmArr: data, custPhoto: item.imageurl });
+                        arraydata.push({ itmArr: data, custPhoto: item.imageurl, Custid: item.Cust_ID });
                     });
                     return arraydata;
                 };
@@ -102,15 +100,14 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                     commonpage.pausePalyslide(type, scope.carousalID);
                 };
 
-
-
-
-
-
-
-
-
+                scope.slidepopup = function(custid) {
+                    commonpage.ShowPhotoPopup(custid, scope);
+                };
+                scope.close = function() {
+                    commonpage.closepopup();
+                };
             }
+
         };
     }
 ]);

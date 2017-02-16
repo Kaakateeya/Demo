@@ -1,4 +1,4 @@
-app.factory('commonpage', ['$uibModal', function(uibModal) {
+app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoalubum) {
     var modalinstance;
     var obj = {};
     obj.gotoSlide = function(e) {
@@ -82,6 +82,22 @@ app.factory('commonpage', ['$uibModal', function(uibModal) {
                     }
 
                 });
+            });
+        },
+        ShowPhotoPopup: function(custid, scope) {
+            photoalubum.getphotoslideimages(custid).then(function(response) {
+                scope.slides = [];
+                _.each(response.data, function(item) {
+                    scope.slides.push(item);
+                });
+            });
+            modalpopupopen = uibModal.open({
+                ariaLabelledBy: 'modal-title',
+                ariaDescribedBy: 'modal-body',
+                templateUrl: 'templates/dynamicPhotoPopup.html',
+                scope: scope,
+                backdrop: 'static',
+                keyboard: false
             });
         }
 
