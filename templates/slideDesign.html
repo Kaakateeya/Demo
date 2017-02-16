@@ -1,0 +1,37 @@
+<div class="carousel-inner">
+    <div ng-class="($index+1)==1?'item active':'item'" ng-repeat="itemval in displayArr">
+        <div class="col-lg-8 col-md-8 col-lxs-8">
+            <div class="row" ng-repeat="slidedata in itemval.itmArr" ng-if="slidedata.label!=='backendFields'">
+                <h5 class="col-lg-3"> <span style="font-weight: bold;">{{slidedata.label}}</span></h5>
+                <h6 class="col-lg-9">
+                    <div style="color:Black;"> <span>{{slidedata.value}}</span> </div>
+                    <span ng-if="slidedata.label=='ProfileID'">&nbsp;<a href="javascript:void(0);" ng-class="slidedata.paid==='1'?'paidCls':'unpaidCls'" >{{slidedata.ProfileID}}</a> {{slidedata.KMPLID}} {{(slidedata.IsConfidential===true) ||(slidedata.IsConfidential==='True')?'C':''}}  
+                                                {{(slidedata.SuperConfidentila==="1") ||(slidedata.SuperConfidentila===1)?'SC':''}}  
+                                                <input ng-show="slidedata.HoroscopeStatus==='1'" src='../../Images/ico_horoscope.jpg' style='height:20px;width:25px;' type='image'>
+                                              </span>
+                </h6>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-3 col-xs-3 col-sm-3 col-lg-pull-2  col-md-pull-2 col-xs-pull-2 col-sm-pull-2 ">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="row">
+                        <a class="Heart center-block" href="javascript:void(0);'">
+                            <div class="col-lg-3"><img src="../../Images/kaakateeya%20logo_001.jpg" style="margin-top: -4px;" width="40" height="38"></div>
+                            <div class="col-lg-1">
+                                <lable style="font-size: 13pt;">shortlist</lable>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="clearfix"></div>
+            <div>
+                <img ng-click="slidepopup()" ng-src="{{itemval.custPhoto}}" class="image" style="cursor: pointer;" />
+                <br>
+                <div class="col-lg-8 col-lg-offset-5"><a href="javascript:void(0)"><span style="color:Black;font-size:9pt;">No of Photos   2</span></a></div>
+            </div>
+        </div>
+    </div>
+</div>

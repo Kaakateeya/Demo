@@ -1,25 +1,27 @@
-app.directive("photoAlbum", ['$timeout', 'photoalubum', '$uibModal',
-    function(timeout, photoalubum, uibModal) {
-        var modalinstance;
+app.directive("photoAlbum", ['commonpage', 'photoalubum',
+    function(commonpage, photoalubum) {
         return {
             restrict: "E",
+            scope: {
+                custid: '='
+            },
             templateUrl: "templates/dynamicPhotoPopup.html",
             link: function(scope, element, attrs) {
                 debugger;
                 scope.slides = [];
-                modalinstance = uibModal.open({
-                    ariaLabelledBy: 'modal-title',
-                    ariaDescribedBy: 'modal-body',
-                    templateUrl: "photopopup.html",
-                    scope: scope,
-                    backdrop: 'static'
-                });
-                photoalubum.getphotoslideimages(83872).then(function(response) {
+                commonpage.showPopup('photopopup.html', scope, 'lg');
+
+                scope.close = function() {
+                    commonpage.closepopup();
+                };
+
+                photoalubum.getphotoslideimages(scope.custid).then(function(response) {
                     scope.slides = [];
                     _.each(response.data, function(item) {
                         scope.slides.push(item);
                     });
                 });
+
             }
         };
     }

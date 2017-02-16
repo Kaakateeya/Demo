@@ -9,12 +9,12 @@
 
 
 var app = angular.module('Kaakateeya', ['ngSanitize', 'ui.bootstrap', 'ui.router']);
-app.apiroot = 'http://183.82.0.58:8010/Api/';
+app.apiroot = 'http://183.82.0.58:8025/Api/';
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
     var states = [{ name: 'testing', url: '/', templateUrl: 'index.html' },
-        { name: 'bootstrapslide', url: '/bootstrapslide', templateUrl: 'Demo/bootstrapSlideshow/index.html' },
+        { name: 'bootstrapslide', url: '/bootstrapslide', templateUrl: 'Demo/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
         { name: 'bootstrapTable', url: '/bootstrapTable', templateUrl: 'Demo/bootstrapTable/index.html' },
         { name: 'photosSlideshow', url: '/photosSlideshow', templateUrl: 'Demo/photosSlideshow/index.html' }
     ];

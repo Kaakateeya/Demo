@@ -30,7 +30,7 @@
 
 <body ng-app="Kaakateeya" ui-router-styles>
     <div ui-view="content"></div>
-    <div class="container">
+    <div class="container" ng-hide="true">
         <div ng-controller="SidebarController" class="sidebar" sidebar-directive="state">
             <a href="#" id="navigation-toggle" ng-click="toggleState()">Navigation</a>
             <ul class="navigation">
@@ -65,6 +65,15 @@
     <script src="src/js/bootstrap-table-export.js"></script>
     <script src="Demo\directives\dynamicPhotoPopup.js"></script>
     <script src="Demo\photosSlideshow\services\photosSlideshowService.js"></script>
+
+
+    <script src="Demo/bootstrapSlideshow/controller/bootstrapSlideshowctrl.js"></script>
+    <script src="Demo/commonpage.js"></script>
+
+    <script src="Demo/directives/slideDesignDirective.js"></script>
+
+    <script src="Demo/bootstrapSlideshow/service/bootstrapSlideshowservice.js"></script>
+
 </body>
 
 </html>

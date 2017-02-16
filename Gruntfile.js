@@ -214,8 +214,6 @@ module.exports = function(grunt) {
             }
         }
 
-
-
     });
     grunt.registerTask('default', ['jshint', 'cssmin', 'concat', 'scriptlinker:dev', 'imagemin']);
 

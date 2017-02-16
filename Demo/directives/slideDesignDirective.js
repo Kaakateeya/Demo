@@ -1,4 +1,4 @@
-app.directive("slideShow", ['$uibModal', 'commonpage',
+app.directive("slideshowDesign", ['$uibModal', 'commonpage',
 
     function(uibModal, commonpage) {
         var modalinstance;
@@ -19,20 +19,16 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 links: '=',
                 resultarray: '=',
                 dynamicheader: '=',
-                bodytemplate: '=',
-                headertemplate: '='
+                template: '='
             },
             templateUrl: function(element, attrs, scope) {
-                return attrs.slidetype === "'page'" ? 'templates/dynamicSlideshow.html' : '';
+                return attrs.slidetype === "'page'" ? 'templates/slideDesign.html' : '';
             },
             link: function(scope, element, attrs) {
-                debugger;
-                var dataarrr = scope.slidearray;
                 scope.displayArr = [];
                 scope.ShowPause = true;
                 scope.carousalID = 'myCarousel';
                 scope.slidNum = 2;
-                scope.prevhide = false;
                 scope.displayArray = function(arr) {
                     var arraydata = [];
                     $.each(arr, function(index, item) {
@@ -80,16 +76,17 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 };
                 scope.pageload = function() {
                     scope.displayArr = scope.displayArray(scope.slidearray);
-                    // commonpage.checkitem(scope.carousalID);
-                    commonpage.ArrowMoveSlide();
-                    commonpage.moveonenter();
+                    console.log(scope.displayArr);
+                    commonpage.checkitem(scope.carousalID);
                 };
                 scope.pageload();
                 if (scope.slidetype === 'popup') {
                     commonpage.showPopup('templates/dynamicSlideshow.html', scope, 'lg');
                 }
-                var currentIndex = 1;
-                $('#' + scope.carousalID).bind('slide.bs.carousel', function() {
+
+                $('#myCarousel').bind('slide.bs.carousel', function() {
+                    var currentIndex = $('#myCarousel').find('div.active').index() + 1;
+                    scope.slidNum = currentIndex;
 
                 });
 
@@ -101,14 +98,6 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                     }
                     commonpage.pausePalyslide(type, scope.carousalID);
                 };
-
-
-
-
-
-
-
-
 
             }
         };
