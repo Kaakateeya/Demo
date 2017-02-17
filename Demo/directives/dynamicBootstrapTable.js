@@ -81,9 +81,10 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                     return false;
                 }
 
-                scope.BootstrapTableAppend = function(darray, id) {
+                scope.BootstrapTableAppend = function(darray) {
+
                     if (darray.length > 0) {
-                        table = $('#' + scope.appendID + ' .Datatable');
+                        table = $('#' + scope.appendID + '.Datatable');
                         scope.Datatableshow = true;
                         table.bootstrapTable('prepend', darray);
                         return false;
@@ -91,6 +92,7 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                 };
 
                 scope.loadmore = function(id) {
+
                     scope.appendID = id;
                     scope.$emit('loadmore');
                 };

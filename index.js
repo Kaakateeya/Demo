@@ -14,7 +14,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
 
     var states = [{ name: 'testing', url: '/', templateUrl: 'index.html' },
-        { name: 'bootstrapslide', url: '/bootstrapslide', templateUrl: 'Demo/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
+        { name: 'bootstrapslide', url: '/bootstrapslide/:id', templateUrl: 'Demo/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
         { name: 'bootstrapTable', url: '/bootstrapTable', templateUrl: 'Demo/bootstrapTable/index.html', controller: 'bootstraptableCtrl' },
         { name: 'photosSlideshow', url: '/photosSlideshow', templateUrl: 'Demo/photosSlideshow/index.html' }
     ];

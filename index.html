@@ -30,21 +30,18 @@
 
 <body ng-app="Kaakateeya" ui-router-styles>
     <div ui-view="content"></div>
-    <div class="container" ng-hide="true">
+    <div class="container">
         <div ng-controller="SidebarController" class="sidebar" sidebar-directive="state">
             <a href="#" id="navigation-toggle" ng-click="toggleState()">Navigation</a>
             <ul class="navigation">
                 <li class="navigation-items"> <a href="bootstrapTable">bootstrapTable</a> </li>
-                <li class="navigation-items"> <a href="bootstrapslide">bootstrapSlide</a> </li>
-                <li class="navigation-items"> <a href="photosSlideshow">photoslide</a> </li>
+                <li class="navigation-items"> <a href="bootstrapslide/1">bootstrapSlide</a> </li>
+                <li class="navigation-items"> <a href="bootstrapslide/2">POPUPSlide</a> </li>
+                <!--<li class="navigation-items"> <a href="photosSlideshow">photoslide</a> </li>-->
             </ul>
         </div>
     </div>
 
-    <div class="">
-        <a href="#">Testinglink
-        </a>
-    </div>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

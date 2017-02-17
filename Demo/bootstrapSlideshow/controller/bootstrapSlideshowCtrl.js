@@ -1,9 +1,19 @@
-app.controller('bootstrapSlideshowCtrl', ['$scope', 'SlideshowService',
-    function(scope, SlideshowService) {
+app.controller('bootstrapSlideshowCtrl', ['$scope', 'SlideshowService', '$stateParams',
+    function(scope, SlideshowService, $stateParams) {
         scope.slideshowArray = [];
         pageload();
+        scope.slidetypeid1 = false;
+        scope.slidetypeid2 = false;
+        scope.slidetypeid = $stateParams.id;
 
-
+        console.log(scope.slidetypeid);
+        if (scope.slidetypeid === '1') {
+            scope.slidetypeid2 = false;
+            scope.slidetypeid1 = true;
+        } else if (scope.slidetypeid === '2') {
+            scope.slidetypeid1 = false;
+            scope.slidetypeid2 = true;
+        }
 
         function pageload() {
             // SlideshowService.getslideshowProfiles().then(function(response) {
@@ -12,6 +22,7 @@ app.controller('bootstrapSlideshowCtrl', ['$scope', 'SlideshowService',
             //     console.log(scope.slideshowArray);
 
             // });
+
             scope.slideshowArray = [{
                 Age: 29,
                 AgeMax: null,

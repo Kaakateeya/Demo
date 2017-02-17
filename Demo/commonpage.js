@@ -20,8 +20,8 @@ app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoa
                 templateUrl: url,
                 scope: scope,
                 size: size,
-                backdrop: 'static',
-                keyboard: false
+                backdrop: 'static'
+                    // keyboard: false
             });
         },
         closepopup: function() {
@@ -41,11 +41,12 @@ app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoa
         checkitem: function(id) {
             var $this;
             $this = $("#" + id);
-
-            if ($("#" + id + " .carousel-inner .item:first").hasClass("active")) {
+            debugger;
+            console.log($("#" + id + ">.carousel-inner>.item:first").hasClass("active"));
+            if ($("#" + id + ".carousel-inner.item:first").hasClass("active")) {
                 $("#" + id).find('.left').hide();
                 $("#" + id).find('.right').show();
-            } else if ($("#" + id + " .carousel-inner .item:last").hasClass("active")) {
+            } else if ($("#" + id + ".carousel-inner.item:last").hasClass("active")) {
                 $("#" + id).find('.left').show();
                 $("#" + id).find('.right').hide();
             } else {
@@ -70,20 +71,20 @@ app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoa
         },
 
         moveonenter: function() {
-            $(function() {
-                var wage = document.getElementById("txtGotoVal");
-                wage.addEventListener("keydown", function(e) {
-                    if (e.keyCode === 13) {
-                        obj.gotoSlide(wage);
-                        $('#myCarousel').carousel(parseInt($(wage).val()) - 1);
-                        $('#myCarousel').carousel('pause');
-                        $('#playButton').show();
-                        $('#pauseButton').hide();
-                        return false;
-                    }
+            // $(function() {
+            //     var wage = document.getElementById("txtGotoVal");
+            //     wage.addEventListener("keydown", function(e) {
+            //         if (e.keyCode === 13) {
+            //             obj.gotoSlide(wage);
+            //             $('#myCarousel').carousel(parseInt($(wage).val()) - 1);
+            //             $('#myCarousel').carousel('pause');
+            //             $('#playButton').show();
+            //             $('#pauseButton').hide();
+            //             return false;
+            //         }
 
-                });
-            });
+            //     });
+            // });
         },
         ShowPhotoPopup: function(custid, scope) {
             photoalubum.getphotoslideimages(custid).then(function(response) {

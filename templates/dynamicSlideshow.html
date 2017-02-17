@@ -15,7 +15,7 @@
                     <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
 
                         <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
-                            <label>Viewed</label>&nbsp;<label id="lnkLastSlide" style="color: blue;">1</label>&nbsp;<label>Profiles</label>
+                            <label>Viewed</label>&nbsp;<label id="lnkLastSlide" data-ng-bind="slidNum" style="color: blue;">1</label>&nbsp;<label>Profiles</label>
                         </div>
                         <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
                             <input type="text" id="txtGotoVal" class="form-control" style="width: 50px; height: 24px; margin-left: -20px;" onchange="gotoSlide(this);" />
@@ -24,7 +24,7 @@
                     </div>
                     <div class="col-lg-2" ng-if="slidetype==='popup'">
                         <a href="javascript:void(0);">
-                            <ng-md-icon icon="close" style="fill:#c73e5f" class="pull-right" size="25">close</ng-md-icon>
+                            <ng-md-icon icon="close" ng-click="close()" style="fill:#c73e5f" class="pull-right" size="25">close</ng-md-icon>
                         </a>
                     </div>
                 </div>
@@ -40,7 +40,8 @@
                 <div id="sildeViewDiv" style="display:block;">
                     <div class="row">
                         <div class="col-lg-5">
-                            <div class="num">Profile {{slidNum}}</div>
+                            <div class="num">Profile
+                                <label style="color: blue;" data-ng-bind="slidNum"></label>&nbsp;</div>
                         </div>
                     </div>
                     <div class="bs-example">

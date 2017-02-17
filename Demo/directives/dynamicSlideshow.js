@@ -29,7 +29,8 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 scope.displayArr = [];
                 scope.ShowPause = true;
                 scope.carousalID = 'myCarousel';
-                scope.slidNum = 2;
+                scope.slidNum = 1;
+                scope.slidNumfiled = 1;
                 scope.prevhide = false;
                 scope.displayArray = function(arr) {
                     var arraydata = [];
@@ -65,11 +66,11 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                         data.push({ label: 'Mother Native', value: item.MFNative });
                         data.push({ label: 'Property(Lakhs)', value: item.Property });
                         data.push({ label: 'backendFields', Custid: item.Cust_ID, ProfileID: item.ProfileID, PhotoCount: item.PhotoCount, Age: item.Age, HeightInCentimeters: item.HeightInCentimeters, MaritalStatusID: item.MaritalStatusID, CasteID: item.CasteID, serviceDate: item.serviceDate, CustPhoto: item.imageurl, totalrecords: item.TotalRowsKeyword });
-                        if (item.serviceDate != "--" && item.serviceDate != "" && item.serviceDate != null)
+                        if (item.serviceDate != "--" && item.serviceDate !== "" && item.serviceDate !== null)
                             data.push({ label: 'ServiceDate', value: item.serviceDate, style: 'style= color:red;' });
                         if (item.Intercaste == "True")
                             data.push({ label: 'Intercaste', value: (item.fathercaste + "/" + item.mothercaste) });
-                        if (item.ProfileGrade != 0)
+                        if (item.ProfileGrade !== 0)
                             data.push({ label: 'ProfileGrade', value: item.ProfileGrade == "1" ? "A-(This ProfileId Contacts not Visible On Web)" : (item.ProfileGrade == "2" ? "B" : (item.ProfileGrade == "3" ? "C-(This ProfileId Contacts Visible On Web)" : "--(This ProfileId Contacts not Visible On Web)")) });
 
                         arraydata.push({ itmArr: data, custPhoto: item.imageurl, Custid: item.Cust_ID });
@@ -77,10 +78,17 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                     return arraydata;
                 };
                 scope.pageload = function() {
+                    debugger;
                     scope.displayArr = scope.displayArray(scope.slidearray);
-                    // commonpage.checkitem(scope.carousalID);
+                    commonpage.checkitem(scope.carousalID);
                     commonpage.ArrowMoveSlide();
                     commonpage.moveonenter();
+                    var totalItems1 = $('#' + scope.carousalID).find('.item').length;
+                    var currentIndex1 = $('#' + scope.carousalID).find('div.active').index() + 1;
+
+                    scope.slidNum = currentIndex1 + 1;
+                    scope.slidNumfiled = currentIndex1 + 1;
+
                 };
                 scope.pageload();
                 if (scope.slidetype === 'popup') {
@@ -88,7 +96,16 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 }
                 var currentIndex = 1;
                 $('#' + scope.carousalID).bind('slide.bs.carousel', function() {
-
+                    debugger;
+                    var totalItems1 = $('#' + scope.carousalID).find('.item').length;
+                    var currentIndex1 = $('#' + scope.carousalID).find('div.active').index() + 1;
+                    scope.slidNum = currentIndex1;
+                    scope.$apply();
+                    scope.slidNumfiled = currentIndex1;
+                    // scope.$watch(scope.slidNum, function(newvalue, oldvalue) {
+                    //     debugger;
+                    //     scope.slidNum = currentIndex1;
+                    // });
                 });
 
                 scope.pauseResume = function(type) {
@@ -106,6 +123,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 scope.close = function() {
                     commonpage.closepopup();
                 };
+
             }
 
         };

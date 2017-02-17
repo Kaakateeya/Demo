@@ -1,6 +1,8 @@
 <div class="carousel-inner">
     <div ng-class="($index+1)==1?'item active':'item'" ng-repeat="itemval in displayArr">
+
         <div class="col-lg-8 col-md-8 col-lxs-8">
+
             <div class="row" ng-repeat="slidedata in itemval.itmArr" ng-if="slidedata.label!=='backendFields'">
                 <h5 class="col-lg-3"> <span style="font-weight: bold;">{{slidedata.label}}</span></h5>
                 <h6 class="col-lg-9">

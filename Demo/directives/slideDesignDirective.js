@@ -22,6 +22,7 @@ app.directive("slideshowDesign", ['$uibModal', 'commonpage',
                 template: '='
             },
             templateUrl: function(element, attrs, scope) {
+                debugger;
                 return attrs.slidetype === "'page'" ? 'templates/slideDesign.html' : '';
             },
             link: function(scope, element, attrs) {
