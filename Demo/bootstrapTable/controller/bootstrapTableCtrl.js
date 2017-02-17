@@ -3,7 +3,7 @@ app.controller('bootstraptableCtrl', ['$scope',
         scope.tableArray = [];
         scope.StableArray = [];
         scope.ltableArray = [];
-
+        scope.type = [];
         // function pageload() {
         // SlideshowService.getslideshowProfiles().then(function(response) {
 
@@ -12,12 +12,10 @@ app.controller('bootstraptableCtrl', ['$scope',
 
         // });
 
-        scope.table1 = '<table class="Datatable" id="test1"></table>';
 
         scope.tableArray = [{
                 Age: 20,
                 AgeMax: null,
-                Agemax: null,
                 Agemin: null,
                 ApplicationPhotoPath: "~\Images\ProfilePics\KMPL_100329_Images\img1_Images\011003298_FullPhoto.jpg,~\Images\ProfilePics\KMPL_100329_Images\img3_Images\011003298_FullPhoto.jpg,~\Images\ProfilePics\KMPL_100329_Images\img2_Images\011003298_FullPhoto.jpg",
                 Caste: "Telugu-Kamma",
@@ -157,6 +155,10 @@ app.controller('bootstraptableCtrl', ['$scope',
                 Color: "Fair"
             },
         ];
+        scope.$on('loadmore', function(event) {
+            scope.$broadcast('tableAppend', scope.StableArray);
+            return false;
+        });
 
     }
 ]);

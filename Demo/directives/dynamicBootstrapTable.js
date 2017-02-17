@@ -4,19 +4,22 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
             restrict: "E",
             scope: {
                 array: '=',
-                removeObjs: '=',
+                removeobjs: '=',
                 height: '=',
                 pagesize: '=',
-                loadType: '=',
-                vid: '=',
-                templateval: '='
+                loadtype: '='
             },
             templateUrl: "templates/dynamicBootstrapTable.html",
             link: function(scope, element, attrs) {
-                var table = '';
+                debugger;
+                var rem = scope.removeobjs;
 
+
+                var table = '';
                 scope.ID = attrs.id;
-                var testid = $('.Datatable').attr('id');
+                scope.appendID = '';
+                table = $('#' + scope.ID + ' .Datatable');
+
                 var tableArray = scope.array;
                 scope.Datatableshow = true;
                 var datatbaleoptions = {
@@ -66,27 +69,37 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                     return html.join('');
                 }
 
-                function BootstrapTableLoad() {
-
-                    datatbaleoptions.height = 650;
-                    datatbaleoptions.pageSize = 10;
-                    datatbaleoptions.columns = commonpage.setColumns(_.keys(tableArray[0]));
+                scope.BootstrapTableLoad = function() {
+                    datatbaleoptions.height = scope.height || 650;
+                    datatbaleoptions.pageSize = scope.pagesize || 10;
+                    if (scope.removeobjs != null && scope.removeobjs != undefined)
+                        var filteredColumns = _.difference(_.keys(tableArray[0]), scope.removeobjs);
+                    datatbaleoptions.columns = commonpage.setColumns(filteredColumns || _.keys(tableArray[0]));
                     table.bootstrapTable(datatbaleoptions);
 
                     table.bootstrapTable('load', tableArray);
                     return false;
                 }
 
-                function BootstrapTableAppend() {
-                    scope.Datatableshow = true;
-                    tableID.bootstrapTable('prepend', tableArray);
-                    return false;
-                }
+                scope.BootstrapTableAppend = function(darray, id) {
+                    if (darray.length > 0) {
+                        table = $('#' + scope.appendID + ' .Datatable');
+                        scope.Datatableshow = true;
+                        table.bootstrapTable('prepend', darray);
+                        return false;
+                    }
+                };
 
-                debugger;
-                table = $('#' + scope.ID + ' .Datatable');
-                BootstrapTableLoad();
+                scope.loadmore = function(id) {
+                    scope.appendID = id;
+                    scope.$emit('loadmore');
+                };
 
+                scope.$on('tableAppend', function(event, array) {
+                    scope.BootstrapTableAppend(array);
+                });
+
+                scope.BootstrapTableLoad();
             }
         };
     }

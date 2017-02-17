@@ -1,6 +1,8 @@
-<bootstrap-table array="tableArray" tid="#ftable" id="ftable" templateval="table1"></bootstrap-table>
-<bootstrap-table array="StableArray" tid="#stable" id="stable" templateval="table1"></bootstrap-table>
-<bootstrap-table array="ltableArray" tid="#ltable" id="ltable" templateval="table1"></bootstrap-table>
+<bootstrap-table array="tableArray" id="ftable" removeobjs="['ApplicationPhotoPath']" height="'400'" pagesize="'2'"></bootstrap-table>
+<bootstrap-table array="StableArray" id="stable"></bootstrap-table>
+<bootstrap-table array="ltableArray" id="ltable"></bootstrap-table>
+
+<button ng-click="testload();">load</button>
 
 <!--<link href="css/bootstrap-table-fixed-columns.css" rel="stylesheet"></link>
 <link href="css/bootstrap-table.css" rel="stylesheet"></link>
