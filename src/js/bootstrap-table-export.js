@@ -30,7 +30,7 @@
 
     $.extend($.fn.bootstrapTable.defaults.icons, {
         //export: 'glyphicon-export icon-share'
-        export: '../../Images/EXCEL.jpg'
+        export: 'src/images/EXCEL.jpg'
     });
 
     var BootstrapTable = $.fn.bootstrapTable.Constructor,
@@ -54,7 +54,7 @@
                     ' dropdown-toggle" ' +
                     'data-toggle="dropdown" type="button" style="height: 28px;">',
                     //sprintf('<i class="%s %s"></i> ', this.options.iconsPrefix, this.options.icons.export),
-                    sprintf('<img src="../../Images/EXCEL.jpg"></img> ', this.options.iconsPrefix, this.options.icons.export),
+                    sprintf('<img src="src/images/EXCEL.jpg"></img> ', this.options.iconsPrefix, this.options.icons.export),
                     '<span class="caret"></span>',
                     '</button>',
                     '<ul class="dropdown-menu" role="menu">',

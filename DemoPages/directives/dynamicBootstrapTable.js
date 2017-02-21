@@ -72,7 +72,7 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                 scope.BootstrapTableLoad = function() {
                     datatbaleoptions.height = scope.height || 650;
                     datatbaleoptions.pageSize = scope.pagesize || 10;
-                    if (scope.removeobjs != null && scope.removeobjs != undefined)
+                    if (scope.removeobjs !== null && scope.removeobjs !== undefined)
                         var filteredColumns = _.difference(_.keys(tableArray[0]), scope.removeobjs);
                     datatbaleoptions.columns = commonpage.setColumns(filteredColumns || _.keys(tableArray[0]));
                     table.bootstrapTable(datatbaleoptions);

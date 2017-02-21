@@ -1,78 +1,77 @@
-<div>
-    <div id="PhotoPopupSlde" class="edit_page_details_item" role="dialog">
-        <div class="modal-content model-lg">
-            <div class="modal-header" style="border-bottom: 1px solid #ffffff;">
+<div id="PhotoPopupSlde">
+    <div class="">
+        <div class="modal-header" style="border-bottom: 1px solid #ffffff;">
 
 
-                <div class="row" ng-if="dynamicheader==='false'">
-                    <div class="col-lg-6 col-md-6 col-xs-8 col-sm-8">
+            <div class="row" ng-if="dynamicheader==='false'">
+                <div class="col-lg-6 col-md-6 col-xs-8 col-sm-8">
 
-                        <label id="lbltotalrecords">Total Records :</label>
-                        <label id="lblcurrentprofile"></label> &nbsp;of&nbsp;
-                        <label id="lblcurSlide"></label>
+                    <label id="lbltotalrecords">Total Records :</label>
+                    <label id="lblcurrentprofile"></label> &nbsp;of&nbsp;
+                    <label id="lblcurSlide"></label>
 
-                    </div>
-                    <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
-
-                        <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
-                            <label>Viewed</label>&nbsp;<label id="lnkLastSlide" data-ng-bind="slidNum" style="color: blue;">1</label>&nbsp;<label>Profiles</label>
-                        </div>
-                        <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
-                            <input type="text" id="txtGotoVal" class="form-control" style="width: 50px; height: 24px; margin-left: -20px;" onchange="gotoSlide(this);" />
-                        </div>
-
-                    </div>
-                    <div class="col-lg-2" ng-if="slidetype==='popup'">
-                        <a href="javascript:void(0);">
-                            <ng-md-icon icon="close" ng-click="close()" style="fill:#c73e5f" class="pull-right" size="25">close</ng-md-icon>
-                        </a>
-                    </div>
                 </div>
+                <div class="col-lg-4 col-md-4 col-xs-4 col-sm-4">
 
-                <div class="row" ng-if="dynamicheader==='true'">
-                    <div ng-include="headertemplate"></div>
+                    <div class="col-lg-6 col-md-6 col-xs-6 col-sm-6">
+                        <label>Viewed</label>&nbsp;<label id="lnkLastSlide" data-ng-bind="slidNum" style="color: blue;">1</label>&nbsp;<label>Profiles</label>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-xs-1 col-sm-1">
+                        <input type="text" id="txtGotoVal" class="form-control" style="width: 50px; height: 24px; margin-left: -20px;" onchange="gotoSlide(this);" />
+                    </div>
+
                 </div>
-
+                <div class="col-lg-2" ng-if="slidetype==='popup'">
+                    <a href="javascript:void(0);">
+                        <ng-md-icon icon="close" ng-click="close()" style="fill:#c73e5f" class="pull-right" size="25">close</ng-md-icon>
+                    </a>
+                </div>
             </div>
 
-            <div class="progress" id="progessDiv" style="display:block;"></div>
-            <div class="modal-body">
-                <div id="sildeViewDiv" style="display:block;">
-                    <div class="row">
-                        <div class="col-lg-5">
-                            <div class="num">Profile
-                                <label style="color: blue;" data-ng-bind="slidNum"></label>&nbsp;</div>
-                        </div>
+            <div class="row" ng-if="dynamicheader==='true'">
+                <div ng-include="headertemplate"></div>
+            </div>
+
+        </div>
+
+        <div class="progress" id="progessDiv" style="display:block;"></div>
+        <div class="modal-body">
+            <div id="sildeViewDiv" style="display:block;">
+                <div class="row">
+                    <div class="col-lg-5">
+                        <div class="num">Profile
+                            <label style="color: blue;" data-ng-bind="slidNum"></label>&nbsp;</div>
                     </div>
-                    <div class="bs-example">
-                        <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
+                </div>
+                <div class="bs-example">
+                    <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
 
-                            <div ng-include="bodytemplate"></div>
+                        <div ng-include="bodytemplate"></div>
 
-                            <a id="previd" data-target="#myCarousel" class="carousel-control left" href="javascript:void(0)" data-slide="prev">
-                                <span class="glyphicon glyphicon-chevron-left"></span>
-                            </a>
-                            <a id="nxtid" data-target="#myCarousel" class="carousel-control right" href="javascript:void(0)" data-slide="next">
-                                <span class="glyphicon glyphicon-chevron-right"></span>
-                            </a>
+                        <a id="previd" data-target="#myCarousel" class="carousel-control left" href="javascript:void(0)" data-slide="prev">
+                            <span class="glyphicon glyphicon-chevron-left"></span>
+                        </a>
+                        <a id="nxtid" data-target="#myCarousel" class="carousel-control right" href="javascript:void(0)" data-slide="next">
+                            <span class="glyphicon glyphicon-chevron-right"></span>
+                        </a>
 
-                        </div>
-                        <div id="carouselButtons" class="col-lg-offset-5">
-                            <button id="playButton" type="button" ng-show="ShowPause" ng-click="pauseResume('play');" class="btn btn-default btn-xs pauseBtns" title="Play">
+                    </div>
+                    <div id="carouselButtons" class="col-lg-offset-5">
+                        <button id="playButton" type="button" ng-show="ShowPause" ng-click="pauseResume('play');" class="btn btn-default btn-xs pauseBtns" title="Play">
                                     <span class="fa fa-play"></span>
                                 </button>
-                            <button id="pauseButton" type="button" ng-show="!ShowPause" ng-click="pauseResume('pause');" class="btn btn-default btn-xs pauseBtns" title="Pause">
+                        <button id="pauseButton" type="button" ng-show="!ShowPause" ng-click="pauseResume('pause');" class="btn btn-default btn-xs pauseBtns" title="Pause">
                                     <span class="fa fa-pause"></span>
                                 </button>
-                        </div>
                     </div>
                 </div>
             </div>
-            <div class="modal-footer">
-            </div>
+        </div>
+        <div class="modal-footer">
         </div>
     </div>
 </div>
+
 
 <style>
     .paidCls {

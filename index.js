@@ -13,10 +13,18 @@ app.apiroot = 'http://183.82.0.58:8025/Api/';
 app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', function($stateProvider, $urlRouterProvider, $locationProvider) {
 
 
-    var states = [{ name: 'testing', url: '/', templateUrl: 'index.html' },
-        { name: 'bootstrapslide', url: '/bootstrapslide/:id', templateUrl: 'Demo/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
-        { name: 'bootstrapTable', url: '/bootstrapTable', templateUrl: 'Demo/bootstrapTable/index.html', controller: 'bootstraptableCtrl' },
-        { name: 'photosSlideshow', url: '/photosSlideshow', templateUrl: 'Demo/photosSlideshow/index.html' }
+    var states = [
+        { name: 'testing', url: '/', templateUrl: 'dashBoard/dashBoard1.html' },
+        { name: 'bootstrapslide', url: '/bootstrapslide/:id', templateUrl: 'DemoPages/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
+        { name: 'bootstrapTable', url: '/bootstrapTable', templateUrl: 'DemoPages/bootstrapTable/index.html', controller: 'bootstraptableCtrl' },
+        { name: 'photosSlideshow', url: '/photosSlideshow', templateUrl: 'DemoPages/photosSlideshow/index.html' },
+        { name: 'dashboard1', url: '/dashboard1', templateUrl: 'dashBoard/dashBoard1.html' },
+        { name: 'dashboard2', url: '/dashboard2', templateUrl: 'dashBoard/dashBoard2.html' },
+        { name: 'dashboard3', url: '/dashboard3', templateUrl: 'dashBoard/dashBoard3.html' },
+
+        { name: 'login', url: '/login', templateUrl: 'dashBoard/login.html' }
+
+
     ];
 
     $urlRouterProvider.otherwise('/');
@@ -24,15 +32,29 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     _.each(states, function(item) {
 
         var innerView = {};
+        if (item.name === "login") {
+            innerView = {
+                "content@": {
+                    templateUrl: item.templateUrl,
+                    controller: item.controller
+                }
+            };
+        } else {
+            innerView = {
 
-        innerView = {
+                "topbar@": {
+                    templateUrl: "templates/topheader.html"
+                },
+                "content@": {
+                    templateUrl: item.templateUrl,
+                    controller: item.controller
+                },
+                "bottompanel@": {
+                    templateUrl: "templates/footer.html"
+                }
 
-            "content@": {
-                templateUrl: item.templateUrl,
-                controller: item.controller
-            }
-
-        };
+            };
+        }
 
         $stateProvider.state(item.name, {
             url: item.url,
