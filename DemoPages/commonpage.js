@@ -38,35 +38,32 @@ app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoa
             }
 
         },
-        checkitem: function(id) {
-            var $this;
-            $this = $("#" + id);
+        checkitem: function(carouselID) {
             debugger;
-            console.log($("#" + id + ">.carousel-inner>.item:first").hasClass("active"));
-            if ($("#" + id + ".carousel-inner.item:first").hasClass("active")) {
-                $("#" + id).find('.left').hide();
-                $("#" + id).find('.right').show();
-            } else if ($("#" + id + ".carousel-inner.item:last").hasClass("active")) {
-                $("#" + id).find('.left').show();
-                $("#" + id).find('.right').hide();
+            var $this;
+            $this = $("#" + carouselID);
+            if ($("#" + carouselID + ".carousel-inner .item:first").hasClass("ng-scope item active")) {
+                $("#" + carouselID).find('a.carousel-control.left').hide();
+                $("#" + carouselID).find('a.carousel-control.right').show();
+            } else if ($("#" + carouselID + ".carousel-inner .item:last").hasClass("active")) {
+                $("#" + carouselID).find('.left').show();
+                $("#" + carouselID).find('.right').hide();
             } else {
-                $("#" + id).find('.left').show();
-                $("#" + id).find('.right').show();
+                $("#" + carouselID).find('.left').show();
+                $("#" + carouselID).find('.right').show();
             }
         },
-        ArrowMoveSlide: function() {
+        ArrowMoveSlide: function(carouselID) {
             $(document).bind('keyup', function(e) {
-
-                var totalItems = $('#myCarousel').find('.item').length;
-                var currentIndex = $('#myCarousel').find('div.active').index() + 1;
+                var totalItems = $('#' + carouselID).find('.item').length;
+                var currentIndex = $('#' + carouselID).find('div.active').index() + 1;
                 if (e.which == 39) {
                     if (totalItems != currentIndex)
-                        $('#myCarousel').carousel('next');
+                        $('#' + carouselID).carousel('next');
                 } else if (e.which == 37) {
                     if (currentIndex != 1)
-                        $('#myCarousel').carousel('prev');
+                        $('#' + carouselID).carousel('prev');
                 }
-
             });
         },
 

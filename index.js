@@ -21,7 +21,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         { name: 'dashboard1', url: '/dashboard1', templateUrl: 'dashBoard/dashBoard1.html' },
         { name: 'dashboard2', url: '/dashboard2', templateUrl: 'dashBoard/dashBoard2.html' },
         { name: 'dashboard3', url: '/dashboard3', templateUrl: 'dashBoard/dashBoard3.html' },
-
+        { name: 'dashboard4', url: '/dashboard4', templateUrl: 'dashBoard/dashBoard4.html' },
         { name: 'login', url: '/login', templateUrl: 'dashBoard/login.html' }
 
 
@@ -32,7 +32,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
     _.each(states, function(item) {
 
         var innerView = {};
-        if (item.name === "login") {
+        if (item.name === "login" || item.name === "dashboard4") {
             innerView = {
                 "content@": {
                     templateUrl: item.templateUrl,

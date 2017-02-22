@@ -34,41 +34,39 @@
 
         </div>
 
-        <div class="progress" id="progessDiv" style="display:block;"></div>
+
         <div class="modal-body">
+            <div class="col-lg-5">
+                <div class="num">Profile
+                    <label style="color: blue;" data-ng-bind="slidNum"></label>&nbsp;</div>
+            </div>
             <div id="sildeViewDiv" style="display:block;">
-                <div class="row">
-                    <div class="col-lg-5">
-                        <div class="num">Profile
-                            <label style="color: blue;" data-ng-bind="slidNum"></label>&nbsp;</div>
-                    </div>
-                </div>
+
                 <div class="bs-example">
                     <div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel">
 
                         <div ng-include="bodytemplate"></div>
 
-                        <a id="previd" data-target="#myCarousel" class="carousel-control left" href="javascript:void(0)" data-slide="prev">
+                        <a data-target="#myCarousel" class="carousel-control left" href="javascript:void(0)" data-slide="prev">
                             <span class="glyphicon glyphicon-chevron-left"></span>
                         </a>
-                        <a id="nxtid" data-target="#myCarousel" class="carousel-control right" href="javascript:void(0)" data-slide="next">
+                        <a data-target="#myCarousel" class="carousel-control right" href="javascript:void(0)" data-slide="next">
                             <span class="glyphicon glyphicon-chevron-right"></span>
                         </a>
 
                     </div>
                     <div id="carouselButtons" class="col-lg-offset-5">
                         <button id="playButton" type="button" ng-show="ShowPause" ng-click="pauseResume('play');" class="btn btn-default btn-xs pauseBtns" title="Play">
-                                    <span class="fa fa-play"></span>
+                                    <i class="fa fa-play"></i>
                                 </button>
                         <button id="pauseButton" type="button" ng-show="!ShowPause" ng-click="pauseResume('pause');" class="btn btn-default btn-xs pauseBtns" title="Pause">
-                                    <span class="fa fa-pause"></span>
+                                    <i class="fa fa-pause"></i>
                                 </button>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-        </div>
+
     </div>
 </div>
 

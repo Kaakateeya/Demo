@@ -24,7 +24,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 return attrs.slidetype === "'page'" ? 'templates/dynamicSlideshow.html' : '';
             },
             link: function(scope, element, attrs) {
-
+                var currentIndex = 1;
                 var dataarrr = scope.slidearray;
                 scope.displayArr = [];
                 scope.ShowPause = true;
@@ -77,37 +77,42 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                     });
                     return arraydata;
                 };
-                scope.pageload = function() {
-                    debugger;
-                    scope.displayArr = scope.displayArray(scope.slidearray);
+                scope.bindfunction = function() {
+                    $('#' + scope.carousalID).bind('slide.bs.carousel', function() {
+                        debugger;
+                        var totalItems1 = $('#' + scope.carousalID).find('.item').length;
+                        var currentIndex1 = $('#' + scope.carousalID).find('div.active').index() + 1;
+                        scope.slidNum = currentIndex1;
+                        scope.$apply();
+                        scope.slidNumfiled = currentIndex1;
+
+                        // scope.$watch(scope.slidNum, function(newvalue, oldvalue) {
+                        //     debugger;
+                        //     scope.slidNum = currentIndex1;
+                        // });
+                    });
                     commonpage.checkitem(scope.carousalID);
-                    commonpage.ArrowMoveSlide();
+                };
+                scope.pageload = function() {
+                    scope.displayArr = scope.displayArray(scope.slidearray);
+
+                    commonpage.ArrowMoveSlide(scope.carousalID);
                     commonpage.moveonenter();
                     var totalItems1 = $('#' + scope.carousalID).find('.item').length;
                     var currentIndex1 = $('#' + scope.carousalID).find('div.active').index() + 1;
 
                     scope.slidNum = currentIndex1 + 1;
                     scope.slidNumfiled = currentIndex1 + 1;
-
+                    if (totalItems1 === 0) {
+                        commonpage.checkitem(scope.carousalID);
+                    }
+                    debugger;
+                    scope.bindfunction();
                 };
                 scope.pageload();
                 if (scope.slidetype === 'popup') {
                     commonpage.showPopup('templates/dynamicSlideshow.html', scope, 'lg');
                 }
-                var currentIndex = 1;
-                $('#' + scope.carousalID).bind('slide.bs.carousel', function() {
-                    debugger;
-                    var totalItems1 = $('#' + scope.carousalID).find('.item').length;
-                    var currentIndex1 = $('#' + scope.carousalID).find('div.active').index() + 1;
-                    scope.slidNum = currentIndex1;
-                    scope.$apply();
-                    scope.slidNumfiled = currentIndex1;
-                    // scope.$watch(scope.slidNum, function(newvalue, oldvalue) {
-                    //     debugger;
-                    //     scope.slidNum = currentIndex1;
-                    // });
-                });
-
                 scope.pauseResume = function(type) {
                     if (type === 'play') {
                         scope.ShowPause = false;
