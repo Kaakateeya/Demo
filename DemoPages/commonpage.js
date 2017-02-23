@@ -42,10 +42,10 @@ app.factory('commonpage', ['$uibModal', 'photoalubum', function(uibModal, photoa
             debugger;
             var $this;
             $this = $("#" + carouselID);
-            if ($("#" + carouselID + ".carousel-inner .item:first").hasClass("ng-scope item active")) {
-                $("#" + carouselID).find('a.carousel-control.left').hide();
-                $("#" + carouselID).find('a.carousel-control.right').show();
-            } else if ($("#" + carouselID + ".carousel-inner .item:last").hasClass("active")) {
+            if ($("#" + carouselID + " .carousel-inner .item:first").hasClass("active")) {
+                $("#" + carouselID).find('.left').hide();
+                $("#" + carouselID).find('.right').show();
+            } else if ($("#" + carouselID + " .carousel-inner .item:last").hasClass("active")) {
                 $("#" + carouselID).find('.left').show();
                 $("#" + carouselID).find('.right').hide();
             } else {

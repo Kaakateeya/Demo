@@ -1,0 +1,15 @@
+@media only screen and (max-width: 600px) {
+  .edit_page_details_item_desc h6 {
+    width: auto;
+    float: none;
+    display: inline-block;
+    margin: 0 0 10px 0; }
+
+  .edit_page_details_item_desc h6:after {
+    right: -10px; }
+
+  .edit_page_details_item_desc h5 {
+    float: none;
+    width: auto; } }
+
+/*# sourceMappingURL=styles_responsive.css.map */

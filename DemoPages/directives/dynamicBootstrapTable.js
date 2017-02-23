@@ -13,8 +13,6 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
             link: function(scope, element, attrs) {
                 debugger;
                 var rem = scope.removeobjs;
-
-
                 var table = '';
                 scope.ID = attrs.id;
                 scope.appendID = '';
@@ -82,9 +80,9 @@ app.directive("bootstrapTable", ['commonpage', '$timeout',
                 }
 
                 scope.BootstrapTableAppend = function(darray) {
-
+                    debugger;
                     if (darray.length > 0) {
-                        table = $('#' + scope.appendID + '.Datatable');
+                        table = $('#' + scope.appendID + ' .Datatable');
                         scope.Datatableshow = true;
                         table.bootstrapTable('prepend', darray);
                         return false;
