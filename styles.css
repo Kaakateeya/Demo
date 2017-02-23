@@ -22,7 +22,7 @@
   color: black; }
 
 .edit_page_details_item_desc {
-  padding: 4px 0;
+  padding: 3px 0;
   background-size: 522px auto;
   background-position: -29% center;
   position: relative; }
@@ -34,7 +34,7 @@
   color: #7a7a7a;
   text-transform: capitalize;
   font-size: 14px;
-  line-height: 2px; }
+  line-height: 1px; }
 
 .edit_page_details_item_desc h6:after {
   content: ":";
@@ -48,6 +48,6 @@
   text-transform: capitalize;
   font-size: 14px;
   font-weight: 400;
-  line-height: 2px; }
+  line-height: 1px; }
 
 /*# sourceMappingURL=styles.css.map */

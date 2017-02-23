@@ -25,6 +25,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
             },
             link: function(scope, element, attrs) {
                 var currentIndex = 1;
+                var currentslide = 1;
                 var dataarrr = scope.slidearray;
                 scope.displayArr = [];
                 scope.ShowPause = true;
@@ -71,7 +72,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                         if (item.Intercaste == "True")
                             data.push({ label: 'Intercaste', value: (item.fathercaste + "/" + item.mothercaste) });
                         if (item.ProfileGrade !== 0)
-                            data.push({ label: 'ProfileGrade', value: item.ProfileGrade == "1" ? "A-(This ProfileId Contacts not Visible On Web)" : (item.ProfileGrade == "2" ? "B" : (item.ProfileGrade == "3" ? "C-(This ProfileId Contacts Visible On Web)" : "--(This ProfileId Contacts not Visible On Web)")) });
+                            data.push({ label: 'ProfileGrade', value: item.ProfileGrade == "1" ? "A" : (item.ProfileGrade == "2" ? "B" : (item.ProfileGrade == "3" ? "C" : "--")) });
 
                         arraydata.push({ itmArr: data, custPhoto: item.imageurl, Custid: item.Cust_ID });
                     });
@@ -79,7 +80,6 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 };
                 scope.bindfunction = function() {
                     $('#' + scope.carousalID).bind('slide.bs.carousel', function() {
-                        debugger;
                         var totalItems1 = $('#' + scope.carousalID).find('.item').length;
                         var currentIndex1 = $('#' + scope.carousalID).find('div.active').index() + 1;
                         scope.slidNum = currentIndex1;
@@ -90,6 +90,12 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                         //     debugger;
                         //     scope.slidNum = currentIndex1;
                         // });
+                        if (currentslide < currentIndex1) {
+                            if (parseInt(totalItems1) - parseInt(currentIndex1) === 4) {
+                                scope.$emit('slideshowsubmit', totalItems1 + 1, totalItems1 + 10);
+                            }
+
+                        }
                     });
                     commonpage.checkitem(scope.carousalID);
                 };
@@ -106,7 +112,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                     if (totalItems1 === 0) {
                         commonpage.checkitem(scope.carousalID);
                     }
-                    debugger;
+
                     scope.bindfunction();
                 };
                 scope.pageload();
@@ -128,7 +134,9 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 scope.close = function() {
                     commonpage.closepopup();
                 };
-
+                // scope.$on("arrayupdate", function(event, array) {
+                //     scope.displayArr = scope.displayArray(array);
+                // });
             }
 
         };

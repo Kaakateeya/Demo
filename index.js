@@ -15,16 +15,17 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
 
     var states = [
         { name: 'testing', url: '/', templateUrl: 'dashBoard/dashBoard1.html' },
-        { name: 'bootstrapslide', url: '/bootstrapslide/:id', templateUrl: 'DemoPages/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
+        { name: 'bootstrapslide', url: '/bootstrapslide', templateUrl: 'DemoPages/bootstrapSlideshow/index.html', controller: 'bootstrapSlideshowCtrl' },
+        { name: 'bootstrapslidepopup', url: '/bootstrapslidepopup', templateUrl: 'DemoPages/bootstrapPopup/index.html', controller: 'bootstrapSlideshowCtrl' },
+
         { name: 'bootstrapTable', url: '/bootstrapTable', templateUrl: 'DemoPages/bootstrapTable/index.html', controller: 'bootstraptableCtrl' },
         { name: 'photosSlideshow', url: '/photosSlideshow', templateUrl: 'DemoPages/photosSlideshow/index.html' },
         { name: 'dashboard1', url: '/dashboard1', templateUrl: 'dashBoard/dashBoard1.html' },
         { name: 'dashboard2', url: '/dashboard2', templateUrl: 'dashBoard/dashBoard2.html' },
         { name: 'dashboard3', url: '/dashboard3', templateUrl: 'dashBoard/dashBoard3.html' },
         { name: 'dashboard4', url: '/dashboard4', templateUrl: 'dashBoard/dashBoard4.html' },
-        { name: 'login', url: '/login', templateUrl: 'dashBoard/login.html' }
-
-
+        { name: 'login', url: '/login', templateUrl: 'dashBoard/login.html' },
+        { name: 'dashBoardNew', url: '/dashBoardNew', templateUrl: 'dashBoard/dashBoardNew.html' }
     ];
 
     $urlRouterProvider.otherwise('/');
