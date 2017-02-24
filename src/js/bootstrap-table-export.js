@@ -52,7 +52,7 @@
                     '<button class="btn btn-default' +
                     sprintf(' btn-%s', this.options.iconSize) +
                     ' dropdown-toggle" ' +
-                    'data-toggle="dropdown" type="button" style="height: 28px;">',
+                    'data-toggle="dropdown" type="button" style="height: 34px;">',
                     //sprintf('<i class="%s %s"></i> ', this.options.iconsPrefix, this.options.icons.export),
                     sprintf('<img src="src/images/EXCEL.jpg"></img> ', this.options.iconsPrefix, this.options.icons.export),
                     '<span class="caret"></span>',

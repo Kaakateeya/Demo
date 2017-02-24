@@ -18,12 +18,14 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 resultarray: '=',
                 dynamicheader: '=',
                 bodytemplate: '=',
-                headertemplate: '='
+                headertemplate: '=',
+                nghide: '='
             },
             templateUrl: function(element, attrs, scope) {
                 return attrs.slidetype === "'page'" ? 'templates/dynamicSlideshow.html' : '';
             },
             link: function(scope, element, attrs) {
+                debugger;
                 var currentIndex = 1;
                 var currentslide = 1;
                 var dataarrr = scope.slidearray;
@@ -33,6 +35,7 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 scope.slidNum = 1;
                 scope.slidNumfiled = 1;
                 scope.prevhide = false;
+                scope.dynamicslideshow = scope.nghide !== undefined && scope.nghide !== "" ? scope.nghide : true;
                 scope.displayArray = function(arr) {
                     var arraydata = [];
                     $.each(arr, function(index, item) {
@@ -117,7 +120,9 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 };
                 scope.pageload();
                 if (scope.slidetype === 'popup') {
-                    commonpage.showPopup('templates/dynamicSlideshow.html', scope, 'lg');
+                    if (scope.dynamicslideshow === true) {
+                        commonpage.showPopup('templates/dynamicSlideshow.html', scope, 'lg');
+                    }
                 }
                 scope.pauseResume = function(type) {
                     if (type === 'play') {
@@ -137,6 +142,12 @@ app.directive("slideShow", ['$uibModal', 'commonpage',
                 // scope.$on("arrayupdate", function(event, array) {
                 //     scope.displayArr = scope.displayArray(array);
                 // });
+
+                scope.$on("slideshowdynamic", function(event) {
+                    debugger;
+                    scope.dynamicslideshow = true;
+                    commonpage.showPopup('templates/dynamicSlideshow.html', scope, 'lg');
+                });
             }
 
         };

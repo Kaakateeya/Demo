@@ -818,6 +818,7 @@ app.controller('newdashboard', ['$scope', 'SlideshowService', '$stateParams',
         scope.slideshowfunction = function() {
 
             scope.slideshowtrue = true;
+            scope.$broadcast("slideshowdynamic");
         };
     }
 ]);

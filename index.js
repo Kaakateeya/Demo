@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', functio
         { name: 'dashboard3', url: '/dashboard3', templateUrl: 'dashBoard/dashBoard3.html' },
         { name: 'dashboard4', url: '/dashboard4', templateUrl: 'dashBoard/dashBoard4.html' },
         { name: 'login', url: '/login', templateUrl: 'dashBoard/login.html' },
-        { name: 'dashBoardNew', url: '/dashBoardNew', templateUrl: 'dashBoard/dashBoardNew.html' }
+        { name: 'dashBoardNew', url: '/dashBoardNew', templateUrl: 'dashBoard/dashBoardNew.html', controller: 'newdashboard' }
     ];
 
     $urlRouterProvider.otherwise('/');
